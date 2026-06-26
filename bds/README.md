@@ -22,6 +22,7 @@ two `llama.cpp` servers and one warmup server; the application server itself is
 deliberately **GPU-free**, so it's the only service that can hot-restart safely.
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart LR
   subgraph Client["Client — Windows / Linux"]
     GUI["PySide6 GUI"]
@@ -54,6 +55,7 @@ the two — which have very different runtime profiles — can be re-run
 independently.
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart LR
   A["Phase 1 — Organize"] --> B["Phase 2 — Index"]
   B --> C["Phase 3a — Entity extraction"]
@@ -74,6 +76,7 @@ only process what's new.
 ## Hybrid retrieval
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TB
   Q["Query"] --> V["BGE dense vector search"]
   Q --> K["BM25 keyword search"]
