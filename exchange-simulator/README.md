@@ -15,6 +15,7 @@ trading-systems development was built on — rebuilt here in modern C++.
 ## Trade lifecycle
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart LR
   TC["TradingClient<br/>FIX initiator"] -- "new order (FIX)" --> EX["ExchangeServer<br/>matching engine + FIX acceptor"]
   EX -- "execution report (FIX)" --> TC
