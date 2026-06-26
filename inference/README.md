@@ -21,6 +21,7 @@ path was prone to **GPU wedges and kernel panics** under sustained load, and
 even when healthy it cost real dead time on every phase transition.
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TB
   subgraph Before["Single-slot + model swap"]
     M1["model A resident"] -->|"swap (~75s, wedge / panic-prone)"| M2["model B resident"]
@@ -30,6 +31,10 @@ flowchart TB
     V["vision model — pinned :8100"]
     T["text model — pinned :8101"]
   end
+  classDef good fill:#0f766e,stroke:#5eead4,color:#ffffff;
+  classDef bad fill:#7f1d1d,stroke:#fca5a5,color:#ffffff;
+  class V,T good
+  class M1,M2 bad
 ```
 
 The fix was structural rather than a tuning pass: run **two llama.cpp servers,
